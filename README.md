@@ -1,4 +1,4 @@
-# FirstDjango_1403
+# Snippets_1603
 ## Инструкция по развертыванию проекта
 
 1. `python3 -m venv venv_name` - создание venv
