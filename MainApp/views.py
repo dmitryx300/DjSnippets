@@ -13,6 +13,14 @@ def index_page(request):
 
 
 @login_required
+def my_snippets(request):
+    context = {'pagename': 'Мои сниппеты'}
+    snippets = Snippet.objects.filter(user=request.user)
+    context["snippets"] = snippets
+    return render(request, 'pages/view_snippets.html', context)
+
+
+@login_required
 def add_snippet_page(request):
     # хотим получить чистую форму для заполнения
     if request.method == "GET":
@@ -103,4 +111,4 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect('home')
